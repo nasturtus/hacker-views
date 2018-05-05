@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200");
+
+.search-searchIcon {
+  max-width: 3%;
+  max-height: auto;
+}
+
+input {
+  font-size: 100%;
+  font-weight: 100;
+}

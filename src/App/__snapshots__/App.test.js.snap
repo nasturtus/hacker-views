@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App has a valid snapshot 1`] = `
+<div
+  className="page"
+>
+  <div
+    className="interactions"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <h1>
+        Search
+      </h1>
+      <input
+        onChange={[Function]}
+        type="text"
+        value="purescript"
+      />
+    </form>
+  </div>
+  <div
+    className="table"
+  >
+    <h1>
+      Results
+    </h1>
+  </div>
+</div>
+`;
+
+exports[`Search component has a valid snapshot 1`] = `
+<form
+  onSubmit={undefined}
+>
+  <h1>
+    Search
+  </h1>
+  <input
+    onChange={undefined}
+    type="text"
+    value={undefined}
+  />
+</form>
+`;

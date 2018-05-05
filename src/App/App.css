@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,900");
+
+body {
+  margin: 0 auto;
+  max-width: 1000px;
+  color: black;
+  background: white;
+}
+
+.container-grid {
+  display: grid;
+  /* margin-left: 5%;
+  margin-right: 5%; */
+  grid-row-gap: 20px;
+}
+
+.interactions {
+  text-align: center;
+}
+
+.header {
+  text-align: right;
+  font-family: "Poppins", sans-serif;
+}
+
+.title {
+  font-weight: 100;
+  font-size: 300%;
+  margin-bottom: 0%;
+}
+
+.subtitle {
+  font-weight: 900;
+  font-weight: 200%;
+  margin-top: 0%;
+  color: rgb(0, 0, 255);
+}
+
+
+ul,
+li {
+  list-style: none;
+  padding: 0px;
+  margin: 2px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  margin-right: 10px;
+  border: 1px solid #dddddd;
+}
+
+button {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #dddddd;
+  background: transparent;
+  color: #808080;
+  cursor: pointer;
+}
+
+button:hover {
+  color: #222;
+}
+
+*:focus {
+  outline: none;
+}
+
+.loader {
+  box-sizing: border-box;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  border-radius: 50%;
+  border: solid 5px gray;
+  border-top-color: yellow;
+  animation-name: spinner;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  /* alternatively: animation: spinner 1.0s linear infinite; */
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
