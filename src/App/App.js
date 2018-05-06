@@ -10,6 +10,8 @@ import { searchUrl, frontPageUrl } from "../Utils";
 // css
 import "./App.css";
 
+const CORS_API_URL = "https://cors-anywhere.herokuapp.com/";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -36,8 +38,7 @@ class App extends Component {
   }
 
   render() {
-    console.log("in render..");
-    console.log(this.state.result.hits);
+    // console.log("in render..");
     const { result, searchTerm } = this.state; // object destructuring
 
     const tableDOM = (
@@ -103,7 +104,6 @@ class App extends Component {
     //   }
     // });
     // line 134-35 using destructuring is  a shortened way of achieving the same as above
-    console.log(`Fetch page number ${page} for search term ${searchTerm}`);
     let url = null;
     const pageNumber = "&page=" + page.toString();
 
@@ -112,14 +112,18 @@ class App extends Component {
       url = frontPageUrl + pageNumber;
     } else {
       // set url to fetch pages related to search term submitted
+      
+      // ..enclosing search string in double quotes to handle the possibility of multi-word search string
+      searchTerm = '"' + searchTerm + '"';
+
       searchTerm += pageNumber;
       url = searchUrl + searchTerm;
-      console.log({ url });
     }
     const updatedResult = { ...this.state.result, isLoading: true };
     this.setState({ result: updatedResult });
 
-    axios(url)
+    console.log({ url });
+    axios(CORS_API_URL + url)
       .then(results => {
         console.log(results);
         this.setSearchTopStories(
@@ -133,7 +137,9 @@ class App extends Component {
 
   setSearchTopStories(hits, page, nbPages) {
     // the following line is only if you want to add new results to existing results.
-    const updatedHits = [...this.state.result.hits, ...hits];
+    // let updatedHits = [...this.state.result.hits, ...hits];
+    let updatedHits = [...hits, ...this.state.result.hits];
+    // updatedHits.reverse();
 
     this.setState({
       result: {
@@ -146,7 +152,10 @@ class App extends Component {
   }
 
   searchChange(e) {
+    console.log("In searchChange");
+    console.log("e.target.value", e.target.value);
     this.setState({ searchTerm: e.target.value.toLowerCase() });
+    console.log("this.state.searchTerm", this.state.searchTerm);
   }
 
   isSearched(searchTerm) {
