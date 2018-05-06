@@ -1,20 +1,16 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,400,900");
 
-.table-flexbox {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 4px;
-}
-
-.table-flexbox-column {
-  flex: 30%;
-  max-width: 30%;
-  padding: 0 8px;
-  margin-bottom: 2%;
+.table-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 300px));
+  /* grid-template-columns: repeat(3, 1fr); */
+  grid-column-gap: 5%;
+  grid-auto-rows: auto;
+  grid-row-gap: 10px;
 }
 
 .table-image {
-  max-width: 90%;
+  max-width: 100%;
   max-height: auto;
 }
 

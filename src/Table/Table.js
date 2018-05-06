@@ -31,9 +31,9 @@ const Table = props => {
         Page {page + 1} of {nbPages}
       </h3>
 
-      <div className="table-flexbox">
+      <div className="table-grid">
         {hits.filter(filterCallback(searchTerm)).map((item, index) => (
-          <div key={item.objectID} className="table-flexbox-column">
+          <div key={item.objectID}>
             <div className="table-grid-panel-thumbnail">
               <a href={imgUrls[index]} target="_blank">
                 <img
